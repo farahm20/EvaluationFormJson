@@ -5,9 +5,9 @@ import { useField } from 'formik';
 
 const CheckboxQuestions = ({ question, ...props }) => {
     const [field, meta] = useField(props);
-    console.log(field)
+    // console.log(field)
     const questionOptions = question.answerOptions;
-    console.log('question options', questionOptions)
+    // console.log('question options', questionOptions)
     const toggle = (event) => {
         console.log(event.target.value)
     };
@@ -18,29 +18,31 @@ const CheckboxQuestions = ({ question, ...props }) => {
     }
 
     return (
-        <div className="answer-section">
-            <label >{question.questionText}</label>
-            {
-                questionOptions.map(
-                    (choice, index) => <FormControlLabel
-                        key={choice}
-                        control={
-                            <Checkbox
-                                className="form-options"
-                                type="checkbox"
-                                value={choice}
-                                name={question.ans}
-                                checked={isChecked == index}
-                                onClick={() => isCheckboxChecked(index)}
+        <div className="form-control">
+            <div className="answer-section">
+                <label >{question.questionText}</label>
+                {
+                    questionOptions.map(
+                        (choice, index) => <FormControlLabel
+                            key={choice}
+                            control={
+                                <Checkbox
+                                    className="form-options"
+                                    type="checkbox"
+                                    value={choice}
+                                    name={question.ans}
+                                    checked={isChecked == index}
+                                    onClick={() => isCheckboxChecked(index)}
 
-                                {...props}
-                            />
-                        }
-                        label={choice}
-                        {...field}
-                    />
-                )
-            }
+                                    {...props}
+                                />
+                            }
+                            label={choice}
+                            {...field}
+                        />
+                    )
+                }
+            </div>
         </div>
 
     )

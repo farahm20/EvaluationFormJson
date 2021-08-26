@@ -41,24 +41,10 @@ const sendDataToDatabase = async (value) => {
 
 const Questions = () => {
     const questions = Render();
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [showScore, setShowScore] = useState(false);
-    const [score, setScore] = useState(0);
+    // const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [showAnswer, answered] = useState(false);
 
-    //move to next question when user answers
-    const handleAnswerButtonClick = (answered) => {
-        if (answered === true) {
-            setScore(score + 1);
-        }
 
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion);
-        }
-        else {
-            setShowScore(true);
-        }
-    }
 
 
     return (
@@ -72,60 +58,53 @@ const Questions = () => {
                 sendDataToDatabase(values);
             }}
         >
-            {showScore ? (
-                <div className='score-section'>You answered {score} out of {questions.length}</div>
-            ) : (
-                <Form >
-                    <div className="form-control" >
-                        <div className="question-section">
-                            <div className='question-count'>
-                                <span>Question {currentQuestion + 1}</span>/{questions.length}
-                            </div>
-                            <div className='question-text'></div>
 
+            <Form >
+                {/* <div className="form-control" > */}
+                <div className="question-section">
+                    {
+                        questions.map(((question) => {
                             {
-                                questions.map(((question, index) => {
-                                    {
-                                        {
-                                            switch (question.format) {
-                                                case 'text':
-                                                    return <TextQuestions
-                                                        key={index}
-                                                        question={question}
-                                                        label={question.questionText}
-                                                        type={question.format}
-                                                        name={question.ans}
-                                                        className='question-text'
-                                                    />
-                                                case 'checkbox':
-                                                    return <CheckboxQuestions
-                                                        key={index}
-                                                        question={question}
-                                                        label={question.questionText}
-                                                        type={question.format}
-                                                        name={question.ans}
-                                                        className='question-text'
-                                                    />;
-                                                case 'textfield':
-                                                    return <TextFieldQuestions
-                                                        key={index}
-                                                        question={question}
-                                                        label={question.questionText}
-                                                        type={question.format}
-                                                        name={question.ans}
-                                                        className='question-text' />;
-                                                default:
-                                                    return null;
-                                            }
-                                        }
+                                {
+                                    switch (question.format) {
+                                        case 'text':
+                                            return <TextQuestions
+                                                key={question.questionId}
+                                                question={question}
+                                                label={question.questionText}
+                                                type={question.format}
+                                                name={question.ans}
+                                                className='question-text'
+                                            />
+                                        case 'checkbox':
+                                            return <CheckboxQuestions
+                                                key={question.questionId}
+                                                question={question}
+                                                label={question.questionText}
+                                                type={question.format}
+                                                name={question.ans}
+                                                className='question-text'
+                                            />;
+                                        case 'textfield':
+                                            return <TextFieldQuestions
+                                                key={question.questionId}
+                                                question={question}
+                                                label={question.questionText}
+                                                type={question.format}
+                                                name={question.ans}
+                                                className='question-text' />;
+                                        default:
+                                            return null;
                                     }
-                                }))
+                                }
                             }
-                        </div>
-                    </div>
-                    <button className="button" type="submit">Submit</button>
-                </Form>
-            )}
+                        }))
+                    }
+                </div>
+                {/* </div> */}
+                <button className="button" type="submit">Submit</button>
+            </Form>
+
         </Formik >
     )
 }

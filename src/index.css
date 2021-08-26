@@ -27,15 +27,15 @@ body {
 
 .form-control {
   background-color: #f8dfdc;
-  width: 450px;
-  min-height: 200px;
+  width: 650px;
+  min-height: 650px;
   height: min-content;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-evenly;
-  /* margin-bottom: 1rem; */
+  margin-bottom: 1rem;
 }
 
 .form-control input,
@@ -45,8 +45,8 @@ body {
 
 .form-control label {
   color: rgb(0, 0, 0);
-  width: max-content;
-  margin-bottom: 3.5rem;
+  width: fit-content;
+  margin-bottom: 0;
 }
 
 .form-control input,
@@ -60,9 +60,9 @@ body {
 }
 
 .form-control input:focus {
-  outline: none;
-  border-color: #f8dfdc;
-  background-color: #f7f3f2;
+  /* outline: none; */
+  /* border-color: #f8dfdc; */
+  /* background-color: #f7f3f2; */
 }
 
 .question-section {
@@ -74,7 +74,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .question-container {
@@ -120,9 +120,9 @@ body {
 .button:disabled,
 .button:disabled:hover,
 .button:disabled:active {
-  background-color: #ccc;
+  /* background-color: #ccc; */
   border-color: #292929;
-  border-color: #ccc;
+  /* border-color: #ccc; */
   cursor: not-allowed;
 }
 
