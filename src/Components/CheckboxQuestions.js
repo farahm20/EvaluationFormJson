@@ -1,9 +1,9 @@
 import { React, useState } from 'react'
 import { Checkbox } from "@material-ui/core";
 import { FormControlLabel } from '@material-ui/core';
-import { useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 
-const CheckboxQuestions = ({ question, ...props }) => {
+const CheckboxQuestions = ({ questions, question, ...props }) => {
     const [field, meta] = useField(props);
     // console.log(field)
     const questionOptions = question.answerOptions;
@@ -14,6 +14,7 @@ const CheckboxQuestions = ({ question, ...props }) => {
 
     const [isChecked, setIsChecked] = useState();
     const isCheckboxChecked = (index) => {
+        console.log("In checkbox component: ", index)
         setIsChecked(index)
     }
 
@@ -42,7 +43,14 @@ const CheckboxQuestions = ({ question, ...props }) => {
                         />
                     )
                 }
+
+                <ErrorMessage component="div" name={field.name} className="error" />
             </div>
+
+            <div className='question-count'>
+                <p>Question {question.questionId} out of {questions.length}</p>
+            </div>
+
         </div>
 
     )

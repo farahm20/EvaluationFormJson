@@ -5,21 +5,24 @@
       "questionId": 1,
       "answered": false,
       "format": "text",
-      "ans": "1:FirstName"
+      "ans": "1:FirstName",
+      "name": "FirstName"
     },
     {
       "questionText": "Whats your last name?",
       "questionId": 2,
       "answered": false,
       "format": "text",
-      "ans": "2:LastName"
+      "ans": "2:LastName",
+      "name": "LastName"
     },
     {
       "questionText": "What's the name of your therapist?",
       "questionId": 3,
       "answered": false,
       "format": "text",
-      "ans": "3:TherapistName"
+      "ans": "3:TherapistName",
+      "name": "TherapistName"
     },
     {
       "questionText": "Are you overall satisfied with your therapist?",
@@ -30,233 +33,16 @@
       "answerOptions": [
         "Yes",
         "No"
-      ]
+      ],
+      "name": "SatisfiedByTherapist"
     },
     {
       "questionText": "Until today, how has your overall experience been with your therapist? Feel free to tell us?",
       "questionId": 5,
       "answered": false,
       "format": "textfield",
-      "ans": "5:OverallExperience"
-    },
-    {
-      "questionText": "After three sessions, how well do you feel heard by your therapist?",
-      "questionId": 6,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "6:feelHeardByTherapist",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": "How well do you feel seen by your therapist?",
-      "questionId": 7,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "7:feelSeenByTherapist",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": "How well do you feel understood by your therapist?",
-      "questionId": 8,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "8:feelUderstoodByTherapist",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": " How safe do you feel with your therapist?",
-      "questionId": 9,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "9:feelSafeByTherapist",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": " How comfortable do you feel with your therapist?",
-      "questionId": 10,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "10:feelComfortableWithTherapist",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": " How long did it take for you to feel comfortable with your therapist?",
-      "questionId": 11,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "11:HowlongTofeelComfortableWithTherapist",
-      "answerOptions": [
-        "After the first session",
-        "After the second session",
-        "After the third session",
-        "I am not yet comfortable"
-      ]
-    },
-    {
-      "questionText": " How much confidence do you have that your therapist can help you with what you need help with?",
-      "questionId": 12,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "12:ConfidenceInTherapist",
-      "answerOptions": [
-        "1 (low confidence)",
-        2,
-        3,
-        4,
-        "5(high confidence)"
-      ]
-    },
-    {
-      "questionText": " Up until this point, do you feel that you are 'clicking' with your therapist?",
-      "questionId": 13,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "13:ClickingWithTherapist",
-      "answerOptions": [
-        "Yes, I feel like we are clicking",
-        "No, I don't feel like we are clicking",
-        "Other"
-      ]
-    },
-    {
-      "questionText": " How well do you think your therapist matches your preferences and needs - described in the form you completed?",
-      "questionId": 14,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "14:TherapistMatchesYourPreferences",
-      "answerOptions": [
-        "1 (not at all)",
-        2,
-        3,
-        4,
-        "5(very well)"
-      ]
-    },
-    {
-      "questionText": "What are you enjoying most about your therapist so far?",
-      "questionId": 15,
-      "answered": false,
-      "format": "textfield",
-      "ans": "15:EnjoyingMostAboutTherapist"
-    },
-    {
-      "questionText": "What are you enjoying most about your therapy so far?",
-      "questionId": 16,
-      "answered": false,
-      "format": "textfield",
-      "ans": "16:EnjoyingMostAboutTherapy"
-    },
-    {
-      "questionText": "What are you enjoying least about your therapist so far?",
-      "questionId": 17,
-      "answered": false,
-      "format": "textfield",
-      "ans": "17:EnjoyingLeastAboutTherapist"
-    },
-    {
-      "questionText": "What are you enjoying least about your therapy so far?",
-      "questionId": 18,
-      "answered": false,
-      "format": "textfield",
-      "ans": "18:EnjoyingLeastAboutTherapy"
-    },
-    {
-      "questionText": "Out of the therapists that we presented, why did you choose the one you did?",
-      "questionId": 19,
-      "answered": false,
-      "format": "textfield",
-      "ans": "19:WhyChooseThisTherapist"
-    },
-    {
-      "questionText": " Before contacting us, how long had you been thinking about seeing a therapist?",
-      "questionId": 20,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "20:HowLongHaveYouBeenThinkingAboutTherapist",
-      "answerOptions": [
-        "Less than two months",
-        "More than two months",
-        "less than six months",
-        "Between 6-12 months",
-        "Between 12-24 months",
-        "More than 24 months"
-      ]
-    },
-    {
-      "questionText": " How long were you actively looking for a therapist before contacting us?",
-      "questionId": 21,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "21:ActivelyLookingForTherapist",
-      "answerOptions": [
-        "Less than two months",
-        "More than two months",
-        "less than six months",
-        "Between 6-12 months",
-        "Between 12-24 months",
-        "More than 24 months"
-      ]
-    },
-    {
-      "questionText": " When making your therapist choice, do you believe it is important for your therapist to have a profile picture in their profile?",
-      "questionId": 22,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "22:TherapistHaveProfilePicture",
-      "answerOptions": [
-        "Yes, I think a profile picture is important",
-        "No, I don't think a profile picture is important",
-        "Other"
-      ]
-    },
-    {
-      "questionText": " Do you believe it is important for your therapist to have their own professional website (and not only a Linkedin profile or similar)?",
-      "questionId": 23,
-      "answered": false,
-      "format": "checkbox",
-      "ans": "23:TherapistToHaveOwnWebsite",
-      "answerOptions": [
-        "Yes, I think a professional website is important",
-        "No, I don't think a professional website is important",
-        "Other"
-      ]
-    },
-    {
-      "questionText": "Is there anything you think we missed asking you in the form, in relation to your personal preferences and needs, to be able to match you correctly?",
-      "questionId": 24,
-      "answered": false,
-      "format": "textfield",
-      "ans": "24:AnythingWeMissed"
+      "ans": "5:OverallExperience",
+      "name": "OverallExperience"
     }
   ],
   "answers": [
@@ -319,107 +105,240 @@
     },
     {
       "value": {
-        "1:FirstName": "eeeee",
-        "2:LastName": "Mahboob"
+        "24:AnythingWeMissed": "bla bla bla",
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan"
       },
       "id": 2
     },
     {
       "value": {
-        "5:OverallExperience": "Amazing"
+        "24:AnythingWeMissed": "bla bla bla",
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan"
       },
       "id": 3
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "24:AnythingWeMissed": "bla bla bla",
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan"
       },
       "id": 4
     },
     {
-      "value": {},
+      "value": {
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan",
+        "6:feelHeardByTherapist": [
+          "5(very well)"
+        ]
+      },
       "id": 5
     },
     {
-      "value": {},
+      "value": {
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan",
+        "4:satisfiedByTherapist": [
+          "No"
+        ],
+        "24:AnythingWeMissed": "bingo"
+      },
       "id": 6
     },
     {
       "value": {
-        "6:feelHeardByTherapist": [
-          "2"
-        ],
-        "16:EnjoyingMostAboutTherapy": "jsjsjsjs"
+        "initialValues": {
+          "text": "",
+          "textfield": "",
+          "checkbox": ""
+        },
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan"
       },
       "id": 7
     },
     {
-      "value": {},
+      "value": {
+        "initialValues": {
+          "text": "",
+          "textfield": "",
+          "checkbox": ""
+        },
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob"
+      },
       "id": 8
     },
     {
-      "value": {},
+      "value": {
+        "initialValues": {
+          "text": "",
+          "textfield": "",
+          "checkbox": ""
+        },
+        "1:FirstName": "Farah",
+        "4:satisfiedByTherapist": [
+          "Yes"
+        ],
+        "5:OverallExperience": "hduahdahdiuh"
+      },
       "id": 9
     },
     {
-      "value": {},
+      "value": {
+        "1:FirstName": "Farah"
+      },
       "id": 10
     },
     {
-      "value": {},
+      "value": {
+        "initialValues": {
+          "name": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "1:FirstName": "Farah",
+        "2:LastName": "Mahboob",
+        "3:TherapistName": "Susan",
+        "4:satisfiedByTherapist": [
+          "No"
+        ],
+        "5:OverallExperience": "shbhbhblkjahjnb"
+      },
       "id": 11
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
-          "No"
-        ]
+        "initialValues": {
+          "name": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "name": "susan",
+        "checkbox": [
+          "Yes"
+        ],
+        "text": "yes amazing "
       },
       "id": 12
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
+        "initialValues": {
+          "name": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "name": "susan",
+        "checkbox": [
           "Yes"
-        ]
+        ],
+        "text": "yes amazing "
       },
       "id": 13
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
+        "initialValues": {
+          "name": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "name": "Farah Mahboob",
+        "checkbox": [
           "Yes"
-        ]
+        ],
+        "text": "yes amazing "
       },
       "id": 14
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
-          "Yes"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "text": "hello",
+        "checkbox": [
+          "After the second session",
+          "4",
+          "No, I don't feel like we are clicking",
+          "3",
+          "Yes, I think a profile picture is important",
+          "Other"
         ]
       },
       "id": 15
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
-          "Yes"
-        ]
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "text": "",
+          "checkbox": ""
+        },
+        "FirstName": "mujeeb",
+        "LastName": "kkk",
+        "TherapistName": "emrald",
+        "checkbox": [
+          "No",
+          "3"
+        ],
+        "text": "hiuuhuhu"
       },
       "id": 16
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": "",
+          "OverallExperience": "",
+          "FeelHeardByTherapist": ""
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
           "Yes"
-        ]
+        ],
+        "OverallExperience": "bhbh"
       },
       "id": 17
     },
     {
       "value": {
-        "4:satisfiedByTherapist": [
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": "",
+          "OverallExperience": "",
+          "FeelHeardByTherapist": ""
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
           "Yes"
         ]
       },
@@ -427,86 +346,430 @@
     },
     {
       "value": {
-        "1:FirstName": "Farah",
-        "2:LastName": "Mahboob",
-        "3:TherapistName": "Susan"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "LastName": "jack",
+        "FirstName": "mujeeb",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
+          "No"
+        ]
       },
       "id": 19
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "LastName": "jack",
+        "FirstName": "mujeeb",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
+          "No"
+        ]
       },
       "id": 20
     },
     {
       "value": {
-        "2:LastName": "Mahboob"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": false
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald"
       },
       "id": 21
     },
     {
       "value": {
-        "3:TherapistName": "Susan"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": false
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald"
       },
       "id": 22
     },
     {
       "value": {
-        "1:FirstName": "Farah",
-        "2:LastName": "Mahboob",
-        "3:TherapistName": "Susan"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emerald",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ]
       },
       "id": 23
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Simona"
       },
       "id": 24
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Simona",
+        "SatisfiedByTherapist": [
+          "No"
+        ]
       },
       "id": 25
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
       },
       "id": 26
     },
     {
       "value": {
-        "1:FirstName": "Farah"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
       },
       "id": 27
     },
     {
       "value": {
-        "1:FirstName": "Farah",
-        "4:satisfiedByTherapist": [
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "Yes",
           "No"
         ],
-        "5:OverallExperience": "                                                key={question.questionId}\n\n"
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
       },
       "id": 28
     },
     {
       "value": {
-        "1:FirstName": "Farah",
-        "2:LastName": "Mahboob"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
       },
       "id": 29
     },
     {
       "value": {
-        "1:FirstName": "Farah",
-        "2:LastName": "Mahboob",
-        "3:TherapistName": "Susan"
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
       },
       "id": 30
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
+      },
+      "id": 31
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
+      },
+      "id": 32
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "TherapistName": "emerald",
+        "LastName": "jack",
+        "FirstName": "Farah"
+      },
+      "id": 33
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "OverallExperience": "sn snnsjjsjsj",
+        "SatisfiedByTherapist": [
+          "No"
+        ]
+      },
+      "id": 34
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "OverallExperience": "Your should select at least one option",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ]
+      },
+      "id": 35
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Susan",
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "OverallExperience": "Your should select at least one option"
+      },
+      "id": 36
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Susan",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "OverallExperience": "Your should select at least one option"
+      },
+      "id": 37
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Susan",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "OverallExperience": "Your should select at least one option"
+      },
+      "id": 38
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Susan",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "OverallExperience": "Your should select at least one option"
+      },
+      "id": 39
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "Farah",
+        "LastName": "Jack",
+        "TherapistName": "Samina",
+        "SatisfiedByTherapist": [
+          "Yes"
+        ],
+        "OverallExperience": "Your should select at least one option"
+      },
+      "id": 40
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "OverallExperience": "                <ErrorMessage component=\"div\" name={field.name} className=\"error\" />\n"
+      },
+      "id": 41
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "OverallExperience": "                <ErrorMessage component=\"div\" name={field.name} className=\"error\" />\n"
+      },
+      "id": 42
+    },
+    {
+      "value": {
+        "initialValues": {
+          "FirstName": "",
+          "LastName": "",
+          "TherapistName": "",
+          "SatisfiedByTherapist": []
+        },
+        "FirstName": "mujeeb",
+        "LastName": "jack",
+        "TherapistName": "emrald",
+        "SatisfiedByTherapist": [
+          "No"
+        ],
+        "OverallExperience": "                <ErrorMessage component=\"div\" name={field.name} className=\"error\" />\n"
+      },
+      "id": 43
     }
   ]
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { TextField } from "@material-ui/core";
-import { useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 
-const TextFieldQuestions = ({ question, ...props }) => {
+const TextFieldQuestions = ({ questions, question, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <div className="form-control">
@@ -15,6 +15,11 @@ const TextFieldQuestions = ({ question, ...props }) => {
                     {...field}
                     {...props}
                 />
+            </div>
+            <ErrorMessage component="div" name={field.name} className="error" />
+
+            <div className='question-count'>
+                <p>Question {question.questionId} out of {questions.length}</p>
             </div>
         </div>
     )

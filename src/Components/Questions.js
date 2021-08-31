@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Formik, Form, FieldArray } from 'formik';
 import * as Yup from 'yup';
-
+import validationSchema from '../Validation/Validation';
 import TextQuestions from './TextQuestions'
 import CheckboxQuestions from './CheckboxQuestions'
 import TextFieldQuestions from './TextFieldQuestions'
@@ -42,17 +42,26 @@ const sendDataToDatabase = async (value) => {
 const Questions = () => {
     const questions = Render();
     // const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [showAnswer, answered] = useState(false);
+    // const [showAnswer, answered] = useState(false);
 
+    const initialValues = {
+        FirstName: "",
+        LastName: "",
+        TherapistName: "",
+        SatisfiedByTherapist: [],
 
-
+    }
 
     return (
         <Formik
+
             initialValues={
                 {
-                    // answers: ''
+                    initialValues
                 }}
+
+            validationSchema={validationSchema}
+
             onSubmit={values => {
                 console.log("On submit: ", values)
                 sendDataToDatabase(values);
@@ -73,7 +82,8 @@ const Questions = () => {
                                                 question={question}
                                                 label={question.questionText}
                                                 type={question.format}
-                                                name={question.ans}
+                                                name={question.name}
+                                                questions={questions}
                                                 className='question-text'
                                             />
                                         case 'checkbox':
@@ -82,7 +92,8 @@ const Questions = () => {
                                                 question={question}
                                                 label={question.questionText}
                                                 type={question.format}
-                                                name={question.ans}
+                                                name={question.name}
+                                                questions={questions}
                                                 className='question-text'
                                             />;
                                         case 'textfield':
@@ -91,7 +102,8 @@ const Questions = () => {
                                                 question={question}
                                                 label={question.questionText}
                                                 type={question.format}
-                                                name={question.ans}
+                                                name={question.name}
+                                                questions={questions}
                                                 className='question-text' />;
                                         default:
                                             return null;
@@ -101,7 +113,6 @@ const Questions = () => {
                         }))
                     }
                 </div>
-                {/* </div> */}
                 <button className="button" type="submit">Submit</button>
             </Form>
 
