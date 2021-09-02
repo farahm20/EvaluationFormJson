@@ -45,10 +45,10 @@ const Questions = () => {
     // const [showAnswer, answered] = useState(false);
 
     const initialValues = {
-        FirstName: "",
+        // FirstName: "",
         // LastName: "",
         // TherapistName: "",
-        SatisfiedByTherapist: [],
+        // SatisfiedByTherapist: [],
     }
 
     return (
@@ -59,7 +59,7 @@ const Questions = () => {
                     initialValues
                 }}
 
-            // validationSchema={validationSchema}
+            validationSchema={validationSchema}
 
             onSubmit={values => {
                 console.log("On submit: ", values)
@@ -67,7 +67,7 @@ const Questions = () => {
             }}
         >
 
-            <Form >
+            <Form>
                 {/* <div className="form-control" > */}
                 <div className="question-section">
                     {

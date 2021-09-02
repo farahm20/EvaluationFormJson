@@ -15,52 +15,32 @@ const CheckboxQuestions = ({ questions, question, name, ...props }) => {
     const [field, meta] = useField(name);
     const [isChecked, setIsChecked] = useState();
 
-    const { setFieldValue } = useFormikContext();
+    // const { setFieldValue } = useFormikContext();
 
     const isCheckboxChecked = (index) => {
         console.log("In checkbox component: ", index)
         setIsChecked(index)
     }
 
-
-    // const handleChange = (event) => {
-    //     console.log(event.target)
-    //     const { checked } = event.target;
-    //     console.log("in handle change (checked)", checked)
-    //     console.log(event.target.value)
-    //     name = event.target.value;
-    //     console.log("in handle change (field.value)", field.value)
-    //     console.log("name: ", name)
-    //     setFieldValue(name, checked)
-    // };
-
-    // const configCheckbox = {
-    //     ...field,
-    //     onChange: handleChange
-    // };
-
     const configFormControl = {};
     if (meta && meta.touched && meta.error) {
         configFormControl.error = true;
     }
 
-
-
-
     return (
-        <FormControl {...configFormControl}>
+        <FormControl className="form-control" {...configFormControl}>
             <FormLabel component="legend">{question.questionText}</FormLabel>
-            <FormGroup>
+            <FormGroup >
                 {
                     questionOptions.map((option, index) =>
                         <FormControlLabel
                             key={index}
                             control={
                                 <Checkbox
-                                    // {...configCheckbox}
-                                    name={question.ans}
-                                    // checked={isChecked == index}
+                                    className="answer-section"
+                                    name={question.name}
                                     onClick={() => isCheckboxChecked(index)}
+                                    // checked={isChecked === index}
                                     value={option}
                                     {...props}
                                 />
@@ -76,4 +56,3 @@ const CheckboxQuestions = ({ questions, question, name, ...props }) => {
 }
 
 export default CheckboxQuestions
-

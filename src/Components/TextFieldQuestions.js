@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField } from "@material-ui/core";
+import { FormLabel, TextField } from "@material-ui/core";
 import { ErrorMessage, useField } from 'formik';
 
 const TextFieldQuestions = ({ questions, question, ...props }) => {
@@ -7,13 +7,14 @@ const TextFieldQuestions = ({ questions, question, ...props }) => {
     return (
         <div className="form-control">
             <div className="answer-section">
+                <FormLabel component="legend">{question.questionText}</FormLabel>
+
                 <TextField
-                    label={question.questionText}
                     multiline
                     // rowsMax={8}
-                    name={question.ans}
+                    name={question.name}
                     {...field}
-                    {...props}
+                // {...props}
                 />
             </div>
             <ErrorMessage component="div" name={field.name} className="error" />
