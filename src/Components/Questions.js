@@ -46,10 +46,9 @@ const Questions = () => {
 
     const initialValues = {
         FirstName: "",
-        LastName: "",
-        TherapistName: "",
+        // LastName: "",
+        // TherapistName: "",
         SatisfiedByTherapist: [],
-
     }
 
     return (
@@ -60,7 +59,7 @@ const Questions = () => {
                     initialValues
                 }}
 
-            validationSchema={validationSchema}
+            // validationSchema={validationSchema}
 
             onSubmit={values => {
                 console.log("On submit: ", values)

@@ -1,59 +1,79 @@
 import { React, useState } from 'react'
-import { Checkbox } from "@material-ui/core";
-import { FormControlLabel } from '@material-ui/core';
-import { ErrorMessage, useField } from 'formik';
+import {
+    Checkbox,
+    FormControl,
+    FormControlLabel,
+    FormGroup,
+    FormLabel
+} from "@material-ui/core";
+import { useFormikContext, ErrorMessage, useField } from 'formik';
 
-const CheckboxQuestions = ({ questions, question, ...props }) => {
-    const [field, meta] = useField(props);
-    // console.log(field)
+const CheckboxQuestions = ({ questions, question, name, ...props }) => {
+    // const [field, meta] = useField(props);
     const questionOptions = question.answerOptions;
-    // console.log('question options', questionOptions)
-    const toggle = (event) => {
-        console.log(event.target.value)
-    };
 
+    const [field, meta] = useField(name);
     const [isChecked, setIsChecked] = useState();
+
+    const { setFieldValue } = useFormikContext();
+
     const isCheckboxChecked = (index) => {
         console.log("In checkbox component: ", index)
         setIsChecked(index)
     }
 
+
+    // const handleChange = (event) => {
+    //     console.log(event.target)
+    //     const { checked } = event.target;
+    //     console.log("in handle change (checked)", checked)
+    //     console.log(event.target.value)
+    //     name = event.target.value;
+    //     console.log("in handle change (field.value)", field.value)
+    //     console.log("name: ", name)
+    //     setFieldValue(name, checked)
+    // };
+
+    // const configCheckbox = {
+    //     ...field,
+    //     onChange: handleChange
+    // };
+
+    const configFormControl = {};
+    if (meta && meta.touched && meta.error) {
+        configFormControl.error = true;
+    }
+
+
+
+
     return (
-        <div className="form-control">
-            <div className="answer-section">
-                <label >{question.questionText}</label>
+        <FormControl {...configFormControl}>
+            <FormLabel component="legend">{question.questionText}</FormLabel>
+            <FormGroup>
                 {
-                    questionOptions.map(
-                        (choice, index) => <FormControlLabel
-                            key={choice}
+                    questionOptions.map((option, index) =>
+                        <FormControlLabel
+                            key={index}
                             control={
                                 <Checkbox
-                                    className="form-options"
-                                    type="checkbox"
-                                    value={choice}
+                                    // {...configCheckbox}
                                     name={question.ans}
-                                    checked={isChecked == index}
+                                    // checked={isChecked == index}
                                     onClick={() => isCheckboxChecked(index)}
-
+                                    value={option}
                                     {...props}
                                 />
                             }
-                            label={choice}
+                            label={option}
                             {...field}
                         />
-                    )
-                }
-
+                    )}
                 <ErrorMessage component="div" name={field.name} className="error" />
-            </div>
-
-            <div className='question-count'>
-                <p>Question {question.questionId} out of {questions.length}</p>
-            </div>
-
-        </div>
-
+            </FormGroup>
+        </FormControl>
     )
 }
 
 export default CheckboxQuestions
+
