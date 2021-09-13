@@ -8,7 +8,6 @@ import TextFieldQuestions from './TextFieldQuestions'
 
 function Render() {
     const [question, setQuestions] = useState([])
-
     useEffect(() => {
         const getQuestions = async () => {
 
@@ -23,7 +22,6 @@ function Render() {
 const fetchQuestions = async () => {
     const res = await fetch('http://localhost:8000/questions') //can be replaced in future with any backend
     const data = await res.json()
-
     console.log("fetching questions", data) //setdata as a state
     return data
 }
@@ -45,15 +43,14 @@ const Questions = () => {
     // const [showAnswer, answered] = useState(false);
 
     const initialValues = {
-        // FirstName: "",
-        // LastName: "",
-        // TherapistName: "",
-        // SatisfiedByTherapist: [],
+        FirstName: '',
+        OverallExperience: '',
+        answerOptions: '',
+        TherapistMatchesYourPreferences: '',
     }
 
     return (
         <Formik
-
             initialValues={
                 {
                     initialValues
@@ -64,10 +61,11 @@ const Questions = () => {
             onSubmit={values => {
                 console.log("On submit: ", values)
                 sendDataToDatabase(values);
+                // resetForm();
+                // setSubmitting(false);
             }}
         >
-
-            <Form>
+            <Form autoComplete="off">
                 {/* <div className="form-control" > */}
                 <div className="question-section">
                     {
@@ -83,7 +81,6 @@ const Questions = () => {
                                                 type={question.format}
                                                 name={question.name}
                                                 questions={questions}
-                                                className='question-text'
                                             />
                                         case 'checkbox':
                                             return <CheckboxQuestions
@@ -93,7 +90,7 @@ const Questions = () => {
                                                 type={question.format}
                                                 name={question.name}
                                                 questions={questions}
-                                                className='question-text'
+                                                answercheck={question.answer}
                                             />;
                                         case 'textfield':
                                             return <TextFieldQuestions
@@ -103,7 +100,7 @@ const Questions = () => {
                                                 type={question.format}
                                                 name={question.name}
                                                 questions={questions}
-                                                className='question-text' />;
+                                            />;
                                         default:
                                             return null;
                                     }

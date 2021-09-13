@@ -1,13 +1,23 @@
 import React from 'react'
 import { FormLabel, TextField } from "@material-ui/core";
-import { ErrorMessage, useField } from 'formik';
+import { useField } from 'formik';
+import { makeStyles } from '@material-ui/core/styles';
 
-const TextFieldQuestions = ({ questions, question, ...props }) => {
+const useStyles = makeStyles({
+    root: {
+        color: 'black',
+    },
+});
+
+const TextFieldQuestions = ({ questions, answercheck, question, ...props }) => {
+    const classes = useStyles();
     const [field, meta] = useField(props);
+
     return (
-        <div className="form-control">
+        <div className="question-container">
             <div className="answer-section">
-                <FormLabel component="legend">{question.questionText}</FormLabel>
+                <FormLabel component="legend"
+                    className={classes.root}>{question.questionText}</FormLabel>
 
                 <TextField
                     multiline
@@ -16,8 +26,15 @@ const TextFieldQuestions = ({ questions, question, ...props }) => {
                     {...field}
                 // {...props}
                 />
+                <>
+                    {meta.touched && meta.error ? (
+                        <div className="error">{meta.error}</div>
+                    ) :
+                        answercheck = true}</>
+                <div className='button-section'>
+                    <button className='okay-button'>OK</button>
+                </div>
             </div>
-            <ErrorMessage component="div" name={field.name} className="error" />
 
             <div className='question-count'>
                 <p>Question {question.questionId} out of {questions.length}</p>
