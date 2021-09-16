@@ -4,7 +4,7 @@ import {
     TextField
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { useField } from 'formik';
+import { Formik, useField } from 'formik';
 
 const useStyles = makeStyles({
     root: {
@@ -18,8 +18,9 @@ const useStyles = makeStyles({
 const TextQuestions = ({ questions, answercheck, question, ...props }) => {
 
     const classes = useStyles();
-
     const [field, meta] = useField(props);
+
+
     return (
         <div className="question-container">
             <div className="answer-section">
@@ -30,10 +31,10 @@ const TextQuestions = ({ questions, answercheck, question, ...props }) => {
 
                 <TextField
                     className={classes.textInput}
-                    // label={question.questionText}
-                    // key={question.questionId}
                     name={question.name}
+                    onBlur={Formik.handleBlur}
                     answercheck={question.toString()}
+                    onChange={Formik.handleChange}
                     {...field}
                 // {...props}
                 />
@@ -42,7 +43,9 @@ const TextQuestions = ({ questions, answercheck, question, ...props }) => {
                     {meta.touched && meta.error ? (
                         <div className="error">{meta.error}</div>
                     ) :
-                        answercheck = true}</>
+                        null}
+                    {/* answercheck = true} */}
+                </>
 
                 <div className='button-section'>
                     <button className='okay-button'>OK</button>

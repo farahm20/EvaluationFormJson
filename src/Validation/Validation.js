@@ -9,35 +9,38 @@ const validationSchema = Yup.object().shape({
         .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
         .required("Required"),
     // LastName: Yup.string()
-    //     .max(15, "Must be 15 characters or less")
+    //     .max(20, "Must be 20 characters or less")
     //     .test('length', 'First Name must have more than 1 character', (value) => {
     //         return value && value.length > 2;
     //     })
     //     .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
     //     .required("Required"),
     // TherapistName: Yup.string()
-    //     .max(15, "Must be 15 characters or less")
-    //     .test('length', 'First Name must have more than 1 character', (value) => {
+    //     .max(30, "Must be 15 characters or less")
+    //     .test('length', 'Name must have more than 1 character', (value) => {
     //         return value && value.length > 2;
     //     })
     //     .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
     //     .required("Required"),
-    SatisfiedByTherapist: Yup.array()
-        .min(1, "You must select one option.")
-        .max(1, "You cannot select more than one option.")
-        .required("You can't leave this blank.")
-        .nullable(),
-    OverallExperience: Yup.string()
-        .max(100, "Must be 100 characters or less.")
-        .test('length', 'Your answer must have more than 10 characters', (value) => {
-            return value && value.length > 10;
-        })
-        .required("Required"),
-    TherapistMatchesYourPreferences: Yup.array()
-        .min(1, "You must select one option.")
-        .max(1, "You cannot select more than one option.")
-        .required("You can't leave this blank.")
-        .nullable(),
+    // SatisfiedByTherapist: Yup.array()
+    //     .min(1, "You must select one option.")
+    //     .max(1, "You cannot select more than one option.")
+    //     // .test('this.array.length', 'You have selected more than one value', (array) => {
+    //     //     return array && array.length > 0;
+    //     // })
+    //     .required("You can't leave this blank.")
+    //     .nullable(),
+    // OverallExperience: Yup.string()
+    //     .max(100, "Must be 100 characters or less.")
+    //     .test('length', 'Your answer must have more than 10 characters', (value) => {
+    //         return value && value.length > 10;
+    //     })
+    //     .required("Required"),
+    // TherapistMatchesYourPreferences: Yup.array()
+    //     .min(1, "You must select one option.")
+    //     .max(1, "You cannot select more than one option.")
+    //     .required("You can't leave this blank.")
+    //     .nullable(),
 });
 
 export default validationSchema;

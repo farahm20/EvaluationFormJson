@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, state } from 'react'
 import {
     Checkbox,
     FormControl,
@@ -7,7 +7,7 @@ import {
     FormLabel
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { ErrorMessage, useField } from 'formik';
+import { Field, ErrorMessage, FieldArray, useField } from 'formik';
 
 const useStyles = makeStyles({
     label: {
@@ -44,64 +44,81 @@ const useStyles = makeStyles({
 });
 
 const CheckboxQuestions = ({ questions, question, name, ...props }) => {
-    // const [field, meta] = useField(props);
+
     const classes = useStyles();
-
     const questionOptions = question.answerOptions;
-
-
     const [field, meta] = useField(name);
-    const [isChecked, setIsChecked] = useState();
 
-    // const { setFieldValue } = useFormikContext();
-
-    const isCheckboxChecked = (index) => {
-        console.log("In checkbox component: ", index)
-        setIsChecked(index)
-    }
 
     const configFormControl = {};
     if (meta && meta.touched && meta.error) {
         configFormControl.error = false;
     }
+    {
+        return (
+            <div className="question-container">
 
-    return (
-        <div className="question-container">
-            <FormControl  {...configFormControl}>
-                <FormLabel component="legend"
-                    className={classes.label}
-                >{question.questionText}</FormLabel>
-                <FormGroup className={classes.checkboxOptions}>
-                    {
-                        questionOptions.map((option, index) =>
-                            <FormControlLabel
-                                className={classes.checkboxBox}
-                                key={index}
-                                control={
-                                    <Checkbox
-                                        className={classes.checkboxSmallBox}
+                <FormControl  {...configFormControl}>
+                    <FormLabel component="legend"
+                        className={classes.label}
+                    >{question.questionText}</FormLabel>
+
+                    {/* <FieldArray name="answer.selected">
+                        {(arrayHelpers) => {
+                            return questionOptions.map((option, index) => (
+                                <div key={index}>
+                                    <Field
                                         name={question.name}
-                                        onClick={() => isCheckboxChecked(index)}
-                                        // checked={isChecked == index}
                                         value={option}
-                                        {...props}
+                                        type="checkbox"
+                                        as={Checkbox}
+                                        // checked={ }
+                                        onChange={(e) => {
+                                            if (e.target.checked) {
+                                                arrayHelpers.push({
+                                                    name: e.target.value
+                                                });
+                                            }
+                                        }}
                                     />
-                                }
-                                label={option}
-                                {...field}
-                            />
-                        )}
-                    <ErrorMessage component="div" name={field.name} className="error" />
-                </FormGroup>
-            </FormControl>
-            <div className='button-section'>
-                <button className='okay-button'>OK</button>
+                                    {option}
+
+                                </div>
+                            ));
+                        }}
+                    </FieldArray> */}
+                    <FormGroup className={classes.checkboxOptions} name="answerOptions.selected">
+                        {
+                            questionOptions.map((option, index) =>
+                                <FormControlLabel
+                                    className={classes.checkboxBox}
+                                    key={index}
+                                    control={
+                                        <Checkbox
+                                            className={classes.checkboxSmallBox}
+                                            name={question.name}
+                                            value={option}
+                                            {...props}
+                                        />
+                                    }
+                                    label={option}
+                                    {...field}
+                                />
+                            )}
+                        <ErrorMessage component="div" name={field.name} className="error" />
+                    </FormGroup>
+                </FormControl>
+
+                <div className='button-section'>
+                    <button className='okay-button'>OK</button>
+                </div>
+                <div className='question-count'>
+                    <p>Question {question.questionId} out of {questions.length}</p>
+                </div>
             </div>
-            <div className='question-count'>
-                <p>Question {question.questionId} out of {questions.length}</p>
-            </div>
-        </div>
-    )
+        )
+    }
 }
+
 
 export default CheckboxQuestions
