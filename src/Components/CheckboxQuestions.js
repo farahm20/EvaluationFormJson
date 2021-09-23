@@ -1,4 +1,4 @@
-import { React, state } from 'react'
+import { React } from 'react'
 import {
     Checkbox,
     FormControl,
@@ -7,7 +7,7 @@ import {
     FormLabel
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { Field, ErrorMessage, FieldArray, useField } from 'formik';
+import { ErrorMessage, useField } from 'formik';
 
 const useStyles = makeStyles({
     label: {
@@ -63,34 +63,11 @@ const CheckboxQuestions = ({ questions, question, name, ...props }) => {
                         className={classes.label}
                     >{question.questionText}</FormLabel>
 
-                    {/* <FieldArray name="answer.selected">
-                        {(arrayHelpers) => {
-                            return questionOptions.map((option, index) => (
-                                <div key={index}>
-                                    <Field
-                                        name={question.name}
-                                        value={option}
-                                        type="checkbox"
-                                        as={Checkbox}
-                                        // checked={ }
-                                        onChange={(e) => {
-                                            if (e.target.checked) {
-                                                arrayHelpers.push({
-                                                    name: e.target.value
-                                                });
-                                            }
-                                        }}
-                                    />
-                                    {option}
-
-                                </div>
-                            ));
-                        }}
-                    </FieldArray> */}
                     <FormGroup className={classes.checkboxOptions} name="answerOptions.selected">
                         {
                             questionOptions.map((option, index) =>
                                 <FormControlLabel
+                                    required
                                     className={classes.checkboxBox}
                                     key={index}
                                     control={
@@ -109,12 +86,10 @@ const CheckboxQuestions = ({ questions, question, name, ...props }) => {
                     </FormGroup>
                 </FormControl>
 
-                <div className='button-section'>
-                    <button className='okay-button'>OK</button>
-                </div>
-                <div className='question-count'>
+
+                {/* <div className='question-count'>
                     <p>Question {question.questionId} out of {questions.length}</p>
-                </div>
+                </div> */}
             </div>
         )
     }

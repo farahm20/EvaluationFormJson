@@ -22,25 +22,26 @@ const validationSchema = Yup.object().shape({
     //     })
     //     .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
     //     .required("Required"),
-    // SatisfiedByTherapist: Yup.array()
-    //     .min(1, "You must select one option.")
-    //     .max(1, "You cannot select more than one option.")
-    //     // .test('this.array.length', 'You have selected more than one value', (array) => {
-    //     //     return array && array.length > 0;
-    //     // })
-    //     .required("You can't leave this blank.")
-    //     .nullable(),
-    // OverallExperience: Yup.string()
-    //     .max(100, "Must be 100 characters or less.")
-    //     .test('length', 'Your answer must have more than 10 characters', (value) => {
-    //         return value && value.length > 10;
-    //     })
-    //     .required("Required"),
-    // TherapistMatchesYourPreferences: Yup.array()
-    //     .min(1, "You must select one option.")
-    //     .max(1, "You cannot select more than one option.")
-    //     .required("You can't leave this blank.")
-    //     .nullable(),
+    SatisfiedByTherapist: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        // .test('this.array.length', 'You have selected more than one value', (array) => {
+        //     return array && array.length > 0;
+        // })
+        .required("You can't leave this blank.")
+        .nullable(),
+    OverallExperience: Yup.string()
+        .min(100, "Must be 100 characters or more.")
+        .max(500, "Must be less than 500 characters.")
+        .test('length', 'Your answer must have more than 100 characters', (value) => {
+            return value && value.length < 500;
+        })
+        .required("Required"),
+    TherapistMatchesYourPreferences: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        .required("You can't leave this blank.")
+        .nullable(),
 });
 
 export default validationSchema;

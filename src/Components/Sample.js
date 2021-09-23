@@ -6,25 +6,6 @@ import TextQuestions from './TextQuestions'
 import CheckboxQuestions from './CheckboxQuestions'
 import TextFieldQuestions from './TextFieldQuestions'
 
-function Render() {
-    const [question, setQuestions] = useState([])
-    useEffect(() => {
-        const getQuestions = async () => {
-
-            //Setting the state. 
-            const questionFromServer = await fetchQuestions()
-            setQuestions(questionFromServer)
-        }
-        getQuestions()
-    }, [])//dependency array
-    return question
-}
-const fetchQuestions = async () => {
-    const res = await fetch('http://localhost:8000/questions') //can be replaced in future with any backend
-    const data = await res.json()
-    console.log("fetching questions", data) //setdata as a state
-    return data
-}
 
 const sendDataToDatabase = async (value) => {
     const requestOptions = {
@@ -37,13 +18,10 @@ const sendDataToDatabase = async (value) => {
     // this.data({ postId: data.id })
 }
 
-
-const theSwitchStatment = (index) => {
-    const questions = Render();
-    const questionArrayLength = questions.length;
+//function with switch statement. recieves the question object and current question index
+const theSwitchStatment = (questions, index) => {
 
     if (questions.length > 0) {
-        console.log("print this", questions)
         {
             switch (questions[index].format) {
                 case 'text':
@@ -78,16 +56,31 @@ const theSwitchStatment = (index) => {
     } else {
         console.log("Empty array")
     }
-
 }
 
-const Questions = () => {
-    const questions = Render();
-    console.log(questions)
-    const length = questions.length;
+const Sample = () => {
+    const [questions, setQuestions] = useState(null)
 
+    useEffect(() => {
+        fetch('http://localhost:8000/questions')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setQuestions(data);
+            });
+    }, [])//dependency array
+
+    //manages the question index via the next button. 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    // const [showAnswer, answered] = useState(false);
+
+    //Changes the question index .Recieves the question object
+    const handleAnswerOptionClick = (questions) => {
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion);
+        }
+    };
 
     const initialValues = {
         FirstName: '',
@@ -95,15 +88,6 @@ const Questions = () => {
         answerOptions: '',
         TherapistMatchesYourPreferences: '',
     }
-
-    const handleAnswerOptionClick = (length) => {
-        console.log(length)
-
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < length) {
-            setCurrentQuestion(nextQuestion);
-        }
-    };
 
     return (
         <Formik
@@ -125,10 +109,10 @@ const Questions = () => {
             <Form autoComplete="off">
                 <div className="question-section">
                     <div>
-                        {theSwitchStatment(currentQuestion)}
+                        {questions && (theSwitchStatment(questions, currentQuestion))}
                     </div>
                     <div className='button-section'>
-                        <button className='okay-button' onClick={() => handleAnswerOptionClick(length)}>Next</button>
+                        <button className='okay-button' onClick={() => (handleAnswerOptionClick(questions))}>Next</button>
                     </div>
 
                 </div>
@@ -140,6 +124,6 @@ const Questions = () => {
 
 }
 
-export default Questions
+export default Sample
 
 // {theSwitchStatment(question, index)}
