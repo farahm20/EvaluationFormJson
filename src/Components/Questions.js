@@ -5,26 +5,8 @@ import validationSchema from '../Validation/Validation';
 import TextQuestions from './TextQuestions'
 import CheckboxQuestions from './CheckboxQuestions'
 import TextFieldQuestions from './TextFieldQuestions'
+import PrimaryButton from './PrimaryButton';
 
-function Render() {
-    const [question, setQuestions] = useState([])
-    useEffect(() => {
-        const getQuestions = async () => {
-
-            //Setting the state. 
-            const questionFromServer = await fetchQuestions()
-            setQuestions(questionFromServer)
-        }
-        getQuestions()
-    }, [])//dependency array
-    return question
-}
-const fetchQuestions = async () => {
-    const res = await fetch('http://localhost:8000/questions') //can be replaced in future with any backend
-    const data = await res.json()
-    console.log("fetching questions", data) //setdata as a state
-    return data
-}
 
 const sendDataToDatabase = async (value) => {
     const requestOptions = {
@@ -37,13 +19,10 @@ const sendDataToDatabase = async (value) => {
     // this.data({ postId: data.id })
 }
 
-
-const theSwitchStatment = (index) => {
-    const questions = Render();
-    const questionArrayLength = questions.length;
+//function with switch statement. recieves the question object and current question index
+const theSwitchStatment = (questions, index) => {
 
     if (questions.length > 0) {
-        console.log("print this", questions)
         {
             switch (questions[index].format) {
                 case 'text':
@@ -78,16 +57,45 @@ const theSwitchStatment = (index) => {
     } else {
         console.log("Empty array")
     }
-
 }
 
 const Questions = () => {
-    const questions = Render();
-    console.log(questions)
-    const length = questions.length;
+    const [questions, setQuestions] = useState(null)
 
+    useEffect(() => {
+        fetch('http://localhost:8000/questions')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setQuestions(data);
+            });
+    }, [])//dependency array
+
+    //manages the next question index via the next button. 
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    // const [showAnswer, answered] = useState(false);
+
+    //manages the previous question index via the previous button. 
+    const [previousQuestion, setPreviousQuestion] = useState(0);
+
+    //manages the label of the buttons 
+    const [buttonlabel, setButtonLabel] = useState('OK');
+    //manages the type of buttons.  
+    const [buttonType, setButtonType] = useState();
+    //Changes the question index .Recieves the question object
+    const handleNextButtonClick = (questions) => {
+
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+            console.log("HandlenextButton - nextQuestion: ", nextQuestion)
+            setCurrentQuestion(nextQuestion);
+            setButtonLabel('Next');
+            setButtonType('next');
+        } else {
+            setButtonLabel('Submit');
+            setButtonType('submit');
+        }
+    };
 
     const initialValues = {
         FirstName: '',
@@ -95,15 +103,6 @@ const Questions = () => {
         answerOptions: '',
         TherapistMatchesYourPreferences: '',
     }
-
-    const handleAnswerOptionClick = (length) => {
-        console.log(length)
-
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < length) {
-            setCurrentQuestion(nextQuestion);
-        }
-    };
 
     return (
         <Formik
@@ -125,14 +124,21 @@ const Questions = () => {
             <Form autoComplete="off">
                 <div className="question-section">
                     <div>
-                        {theSwitchStatment(currentQuestion)}
+                        {questions && (theSwitchStatment(questions, currentQuestion))}
                     </div>
                     <div className='button-section'>
-                        <button className='okay-button' onClick={() => handleAnswerOptionClick(length)}>Next</button>
-                    </div>
+                        <PrimaryButton
+                            onClick={() => handleNextButtonClick(questions)}
+                            count={currentQuestion}
+                            length={questions && questions.length}
+                            label={buttonlabel}
+                            type={buttonType}
+                        />
 
+                    </div>
                 </div>
-                <button className="button" type="submit">Submit</button>
+                {/* <button className="button" type="submit">Submit</button> */}
+
             </Form>
 
         </Formik >
@@ -141,5 +147,7 @@ const Questions = () => {
 }
 
 export default Questions
+//disable submit button
+// disabled={!(formik.isValid && formik.dirty)}
 
-// {theSwitchStatment(question, index)}
+//CHECK TRAVERSY FOR MUI SUCCESS PAGE.

@@ -2,12 +2,10 @@ import { React } from 'react'
 import {
     Checkbox,
     FormControl,
-    FormControlLabel,
-    FormGroup,
     FormLabel
 } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { ErrorMessage, useField } from 'formik';
+import { Form, ErrorMessage, useField, FieldArray } from 'formik';
 
 const useStyles = makeStyles({
     label: {
@@ -43,12 +41,12 @@ const useStyles = makeStyles({
 
 });
 
-const CheckboxQuestions = ({ questions, question, name, ...props }) => {
-
+const CheckBoxSample = ({ questions, question, name, values, ...props }) => {
+    // console.log("Incheckbox: ", values)
     const styles = useStyles();
     const questionOptions = question.answerOptions;
+    // console.log("questionOptions: ", questionOptions)
     const [field, meta] = useField(name);
-
 
     const configFormControl = {};
     if (meta && meta.touched && meta.error) {
@@ -61,38 +59,45 @@ const CheckboxQuestions = ({ questions, question, name, ...props }) => {
                     <FormLabel component="legend"
                         className={styles.label}
                     >{question.questionText}</FormLabel>
-
-                    <FormGroup className={styles.checkboxOptions} name="answerOptions.selected">
-                        {
-                            questionOptions.map((option, index) =>
-                                <FormControlLabel
-                                    required
-                                    className={styles.checkboxBox}
-                                    key={index}
-                                    control={
+                    <FieldArray
+                        className={styles.checkboxOptions}
+                        name={question.name}
+                        render={arrayHelpers => (
+                            <div className={styles.checkboxOptions}>
+                                {questionOptions.map((option, index) => (
+                                    <div key={index}>
                                         <Checkbox
                                             className={styles.checkboxSmallBox}
                                             name={question.name}
+                                            type="checkbox"
                                             value={option}
-                                            {...props}
+                                            checked={props.values}
+                                            onChange={e => {
+                                                if (e.target.checked) {
+                                                    arrayHelpers.push(option);
+                                                } else {
+                                                    const idx = option.index;
+                                                    console.log(idx)
+                                                    arrayHelpers.remove(idx);
+                                                }
+                                            }}
+
+                                        // onChange={(e) => { 
+                                        // form.setFieldValue(name, e.target.checked) 
+                                        // }}
                                         />
-                                    }
-                                    label={option}
-                                    {...field}
-                                />
-                            )}
-                        <ErrorMessage component="div" name={field.name} className="error" />
-                    </FormGroup>
+                                        {option}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    />
+                    <ErrorMessage component="div" name={field.name} className="error" />
                 </FormControl>
-
-
-                {/* <div className='question-count'>
-                    <p>Question {question.questionId} out of {questions.length}</p>
-                </div> */}
             </div>
         )
     }
 }
 
 
-export default CheckboxQuestions
+export default CheckBoxSample

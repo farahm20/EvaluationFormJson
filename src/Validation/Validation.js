@@ -8,20 +8,20 @@ const validationSchema = Yup.object().shape({
         })
         .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
         .required("Required"),
-    // LastName: Yup.string()
-    //     .max(20, "Must be 20 characters or less")
-    //     .test('length', 'First Name must have more than 1 character', (value) => {
-    //         return value && value.length > 2;
-    //     })
-    //     .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
-    //     .required("Required"),
-    // TherapistName: Yup.string()
-    //     .max(30, "Must be 15 characters or less")
-    //     .test('length', 'Name must have more than 1 character', (value) => {
-    //         return value && value.length > 2;
-    //     })
-    //     .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
-    //     .required("Required"),
+    LastName: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .test('length', 'First Name must have more than 1 character', (value) => {
+            return value && value.length > 2;
+        })
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .required("Required"),
+    TherapistName: Yup.string()
+        .max(30, "Must be 15 characters or less")
+        .test('length', 'Name must have more than 1 character', (value) => {
+            return value && value.length > 2;
+        })
+        .matches(/^[A-Za-z ]*$/, 'Please enter valid name')
+        .required("Required"),
     SatisfiedByTherapist: Yup.array()
         .min(1, "You must select one option.")
         .max(1, "You cannot select more than one option.")
@@ -37,7 +37,27 @@ const validationSchema = Yup.object().shape({
             return value && value.length < 500;
         })
         .required("Required"),
-    TherapistMatchesYourPreferences: Yup.array()
+    FeelHeardByTherapist: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        .required("You can't leave this blank.")
+        .nullable(),
+    FeelSeenByTherapist: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        .required("You can't leave this blank.")
+        .nullable(),
+    FeelUnderstoodByTherapist: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        .required("You can't leave this blank.")
+        .nullable(),
+    FeelSafeByTherapist: Yup.array()
+        .min(1, "You must select one option.")
+        .max(1, "You cannot select more than one option.")
+        .required("You can't leave this blank.")
+        .nullable(),
+    FeelComfortableWithTherapist: Yup.array()
         .min(1, "You must select one option.")
         .max(1, "You cannot select more than one option.")
         .required("You can't leave this blank.")
